@@ -1,0 +1,41 @@
+Smart contracts
+
+Smart contract are set of instructions executed in a decentralized way without the need for 
+centralized or third party intermediary
+
+what is the value of smart contracts - TRUST MINIMISED AGREEMENTS - unbreakable promises
+
+- Transparency and flexibility
+- Speed and effieciency
+- security and immutabilt
+
+A smart contract 
+- cannot be altered
+- Automatically executes
+- Every one sees the terms of the agreement
+
+Bitcoin are considered as store of value
+While ethereum developers made ethereum store of value and a utility 
+
+Blockchain cannot interact with outside world everything happen in their externel world
+But in order to make contract they need external resources
+This is sovled using ORACLES
+
+ORACLES 
+
+Any device that interacts with off-chain world to provide external data or computation to the smart contracts
+
+Even though a single oracle can make smart contracts centralized
+
+Therefore a oracle network is used which is decentralized
+
+Hybrid Smart Contract
+Most of the Smart contract we see today are hybrid smart contracts = blockchain contracts + off-chain data
+
+Chainlink is an example of decentralized oracle network
+
+DAPP = Decentralized Application = Decentralized protocol = smart contracts
+
+Node operators - the operators running blockchain that is running the algorithms
+
+
