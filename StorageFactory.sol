@@ -13,6 +13,7 @@ contract StorageFactory {
 
     // function it create contract multistorage
     function createMultiStorageContract() public {
+        // The new keyword helps to create contract from other contracts
         multiStorageList.push(new MultiStorage());
     }
 
