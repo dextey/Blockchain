@@ -6,7 +6,7 @@ dotenv.config()
 
 const deploy = async () => {
   const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL)
-  const wallet = new ethers.Wallet(process.env.PRIVET_KEY, provider)
+  const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider)
 
   const ABI = fs.readFileSync('./SimpleStorage_sol_SimpleStorage.abi', 'utf-8')
   const BINARY = fs.readFileSync(
