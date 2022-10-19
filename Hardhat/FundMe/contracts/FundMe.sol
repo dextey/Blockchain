@@ -11,13 +11,16 @@ contract FundMe {
     uint256 minimumUsd = 50 * 1e18;
     mapping(address => uint256) addressFunded;
 
-    constructor() {
+    AggregatorV3Interface priceFeed;
+
+    constructor(address priceFeedAddress) {
         owner = msg.sender;
+        priceFeed = AggregatorV3Interface(priceFeedAddress);
     }
 
     function fund() public payable {
         require(
-            msg.value.convert() >= minimumUsd,
+            msg.value.convert(priceFeed) >= minimumUsd,
             "Send atleast 50$ worth ethereum"
         );
 
