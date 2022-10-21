@@ -9,24 +9,25 @@ error FundMe__NotOwner();
 contract FundMe {
     using PriceConverter for uint256;
 
-    address owner;
-    uint256 minimumUsd = 50 * 1e18;
-    mapping(address => uint256) public addressFunded;
+    //immutable variable are similar to constants but can assign it one time
+    address immutable i_owner;
+    uint256 constant minimumUsd = 50 * 1e18;
+    mapping(address => uint256) public s_addressFunded;
 
-    AggregatorV3Interface public priceFeed;
+    AggregatorV3Interface public s_priceFeed;
 
     constructor(address priceFeedAddress) {
-        owner = msg.sender;
-        priceFeed = AggregatorV3Interface(priceFeedAddress);
+        i_owner = msg.sender;
+        s_priceFeed = AggregatorV3Interface(priceFeedAddress);
     }
 
     function fund() public payable {
         require(
-            msg.value.convert(priceFeed) >= minimumUsd,
+            msg.value.convert(s_priceFeed) >= minimumUsd,
             "Send atleast 50$ worth ethereum"
         );
 
-        addressFunded[msg.sender] = msg.value;
+        s_addressFunded[msg.sender] = msg.value;
     }
 
     function withDraw() public onlyOwner {
@@ -37,7 +38,7 @@ contract FundMe {
     }
 
     modifier onlyOwner() {
-        if (owner != msg.sender) revert FundMe__NotOwner();
+        if (i_owner != msg.sender) revert FundMe__NotOwner();
         _;
     }
 }

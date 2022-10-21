@@ -15,7 +15,7 @@ describe('Contract - FundMe', () => {
 
   describe('Constructor', () => {
     it('Correct aggregator Address', async () => {
-      const response = await fundMe.priceFeed()
+      const response = await fundMe.s_priceFeed()
       assert.equal(response, mockV3Aggregator.address)
     })
   })
@@ -28,7 +28,7 @@ describe('Contract - FundMe', () => {
     })
     it('Able to fund eth ', async () => {
       await fundMe.fund({ value: sendValue })
-      const response = await fundMe.addressFunded(deployer)
+      const response = await fundMe.s_addressFunded(deployer)
       assert.equal(response.toString(), sendValue)
     })
   })

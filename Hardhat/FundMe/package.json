@@ -1,5 +1,5 @@
 {
-  "name": "FundMe",
+  "name": "fund-me",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -20,6 +20,11 @@
     "hardhat-deploy": "^0.11.18",
     "hardhat-gas-reporter": "^1.0.8",
     "solidity-coverage": "^0.8.0",
-    "typechain": "^8.1.0"
+    "typechain": "^8.1.0",
+    "dotenv": "^16.0.3"
+  },
+  "scripts": {
+    "test": "yarn hardhat test",
+    "coverage": "yarn hardhat coverage"
   }
 }
