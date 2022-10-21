@@ -4,14 +4,16 @@ pragma solidity ^0.8.8;
 
 import "./PriceConverter.sol";
 
+error FundMe__NotOwner();
+
 contract FundMe {
     using PriceConverter for uint256;
 
     address owner;
     uint256 minimumUsd = 50 * 1e18;
-    mapping(address => uint256) addressFunded;
+    mapping(address => uint256) public addressFunded;
 
-    AggregatorV3Interface priceFeed;
+    AggregatorV3Interface public priceFeed;
 
     constructor(address priceFeedAddress) {
         owner = msg.sender;
@@ -35,7 +37,7 @@ contract FundMe {
     }
 
     modifier onlyOwner() {
-        require(owner == msg.sender, "Only owner can withdraw funds");
+        if (owner != msg.sender) revert FundMe__NotOwner();
         _;
     }
 }
