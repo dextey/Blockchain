@@ -160,4 +160,12 @@ contract LuckyDraw is VRFConsumerBaseV2, KeeperCompatibleInterface {
     function getLuckyDrawState() public view returns (LuckyDrawState) {
         return luckydrawState;
     }
+
+    function getNumberOfPlayers() public view returns (uint256) {
+        return players.length;
+    }
+
+    function getLatestTimestamp() public view returns (uint256) {
+        return lastTimeStamp;
+    }
 }
