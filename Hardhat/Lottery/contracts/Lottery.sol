@@ -64,11 +64,11 @@ contract LuckyDraw is VRFConsumerBaseV2, KeeperCompatibleInterface {
     }
 
     function enterLuckyDraw() public payable {
-        if (msg.value < entranceFee) {
-            revert LuckyDraw_NotEnoughETHentered();
-        }
         if (luckydrawState != LuckyDrawState.OPEN) {
             revert LuckyDraw_NotOpen();
+        }
+        if (msg.value < entranceFee) {
+            revert LuckyDraw_NotEnoughETHentered();
         }
         players.push(payable(msg.sender));
         emit LuckyDrawEntry(msg.sender);
